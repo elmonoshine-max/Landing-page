@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -649,4 +650,657 @@
 </footer>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo — Donde tu voz encuentra eco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07070f;
+    --surface:#0f0f26;
+    --surface-2:#151533;
+    --line:hsl(240 40% 90% / 0.10);
+    --blue:#4c6fff;
+    --violet:#9b5cff;
+    --white:#f6f7fb;
+    --muted:#9296b4;
+    --muted-dim:#5c6087;
+    --grad: linear-gradient(135deg, var(--blue), var(--violet));
+    --radius-lg: 1.5rem;
+    --radius-md: 1rem;
+    --radius-sm: 0.6rem;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--ink);
+    color: var(--white);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{ font-family:'Space Grotesk', system-ui, sans-serif; letter-spacing:-0.02em; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 1.5rem; }
+  section{ position:relative; }
+  ::selection{ background: var(--violet); color:var(--white); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:0.9rem 1.7rem; border-radius:999px; font-weight:600; font-size:0.95rem;
+    cursor:pointer; border:1px solid transparent; transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn:focus-visible{ outline:2px solid var(--white); outline-offset:3px; }
+  .btn-primary{
+    background: var(--grad); color:#fff;
+    box-shadow: 0 8px 30px -8px hsl(255 90% 60% / 0.55);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 36px -8px hsl(255 90% 60% / 0.7); }
+  .btn-ghost{
+    background: hsl(240 30% 100% / 0.04); color:var(--white); border-color: var(--line);
+    backdrop-filter: blur(6px);
+  }
+  .btn-ghost:hover{ background: hsl(240 30% 100% / 0.09); transform: translateY(-2px); }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: hsl(250 45% 5% / 0.72);
+    backdrop-filter: blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem 1.5rem; max-width:1180px; margin:0 auto;
+  }
+  .logo{ display:flex; align-items:center; gap:.6rem; font-size:1.25rem; font-weight:700; }
+  .logo .mark{ width:30px; height:30px; }
+  .logo .mark circle{ animation: pulse-ring 3s ease-out infinite; transform-origin:center; }
+  .logo .mark circle:nth-child(2){ animation-delay:.4s; }
+  .logo .mark circle:nth-child(3){ animation-delay:.8s; }
+  @keyframes pulse-ring{
+    0%{ opacity:.9; }
+    70%{ opacity:0; }
+    100%{ opacity:0; }
+  }
+  .nav-links{ display:flex; gap:2.2rem; font-size:0.92rem; color:var(--muted); }
+  .nav-links a{ transition:color .2s ease; position:relative; }
+  .nav-links a:hover{ color:var(--white); }
+  .nav-actions{ display:flex; align-items:center; gap:1rem; }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--white); }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .nav-actions .btn-ghost{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 7rem 0 6rem;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-rings{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:1100px; height:1100px; pointer-events:none; z-index:0;
+  }
+  .hero-rings span{
+    position:absolute; inset:0; margin:auto; border-radius:50%;
+    border:1px solid hsl(255 85% 70% / 0.18);
+    animation: ripple 6s cubic-bezier(.2,.6,.35,1) infinite;
+  }
+  .hero-rings span:nth-child(1){ width:220px; height:220px; animation-delay:0s; }
+  .hero-rings span:nth-child(2){ width:220px; height:220px; animation-delay:1.5s; }
+  .hero-rings span:nth-child(3){ width:220px; height:220px; animation-delay:3s; }
+  .hero-rings span:nth-child(4){ width:220px; height:220px; animation-delay:4.5s; }
+  @keyframes ripple{
+    0%{ width:220px; height:220px; opacity:.7; border-color: hsl(255 85% 70% / .35); }
+    100%{ width:1100px; height:1100px; opacity:0; border-color: hsl(255 85% 70% / 0); }
+  }
+  .hero-content{ position:relative; z-index:1; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:.08em;
+    color:var(--muted); background:hsl(240 30% 100% / 0.05); border:1px solid var(--line);
+    padding:.45rem .9rem; border-radius:999px; margin-bottom:1.75rem;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 0 hsl(230 100% 65% / .6); animation: dotping 2s ease-out infinite; }
+  @keyframes dotping{ 0%{ box-shadow:0 0 0 0 hsl(230 100% 65% / .6);} 100%{ box-shadow:0 0 0 8px hsl(230 100% 65% / 0);} }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+    font-weight:700; line-height:1.05; max-width:16ch; margin:0 auto 1.5rem;
+  }
+  .hero h1 .grad{ background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p.lead{
+    color:var(--muted); font-size:1.15rem; max-width:42ch; margin:0 auto 2.5rem;
+  }
+  .hero-actions{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .hero-note{ margin-top:1.25rem; font-size:0.82rem; color:var(--muted-dim); font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- Section shared ---------- */
+  .section{ padding: 6.5rem 0; }
+  .section-head{ max-width:640px; margin:0 auto 3.5rem; text-align:center; }
+  .section-head .eyebrow{ margin-bottom:1.1rem; }
+  .section-head h2{ font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom:1rem; }
+  .section-head p{ color:var(--muted); font-size:1.05rem; }
+
+  /* ---------- Feature icon strip (glide/echo interaction) ---------- */
+  .icon-strip{
+    display:flex; justify-content:center; gap:0; margin: -1rem 0 3.5rem;
+    border-radius:999px; background:var(--surface); border:1px solid var(--line);
+    padding:0.4rem; width:fit-content; margin-left:auto; margin-right:auto;
+    box-shadow: inset 0 1px hsl(0 0% 100% / 0.05);
+  }
+  .icon-strip .node{
+    display:flex; align-items:center; justify-content:center;
+    width:56px; height:56px; border-radius:50%;
+    color:var(--muted);
+  }
+  .icon-strip .node svg{
+    width:20px; height:20px;
+    scale: calc(var(--active, 0) + 0.7);
+    filter: blur(calc((1 - var(--active, 0)) * 0.3rem));
+    transition: scale calc(((1 - var(--active, 0)) + 0.2) * .6s), filter calc(((1 - var(--active, 0)) + 0.2) * .6s), color .3s ease;
+  }
+  .icon-strip .node:is(:hover, :focus-visible) svg{ color:var(--white); }
+  :root{
+    --l0: 1;
+    --l1: calc(sin(50deg));
+    --l2: calc(sin(35deg));
+  }
+  .icon-strip .node:is(:hover, :focus-visible){ --active: var(--l0); }
+  .icon-strip .node:is(:hover, :focus-visible) + .node,
+  .icon-strip .node:has(+ .node:is(:hover, :focus-visible)){ --active: var(--l1); }
+  .icon-strip .node:is(:hover, :focus-visible) + .node + .node,
+  .icon-strip .node:has(+ .node + .node:is(:hover, :focus-visible)){ --active: var(--l2); }
+  .icon-strip .node:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+
+  /* ---------- Feature cards ---------- */
+  .features-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
+  }
+  @media (max-width: 900px){ .features-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width: 600px){ .features-grid{ grid-template-columns:1fr; } }
+  .feature-card{
+    background: var(--surface);
+    border:1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding:2rem;
+    transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    position:relative; overflow:hidden;
+  }
+  .feature-card::before{
+    content:""; position:absolute; inset:0; opacity:0; transition:opacity .4s ease;
+    background: radial-gradient(220px circle at var(--mx,50%) var(--my,0%), hsl(255 90% 65% / 0.14), transparent 70%);
+  }
+  .feature-card:hover::before{ opacity:1; }
+  .feature-card:hover{ transform: translateY(-4px); border-color: hsl(255 70% 70% / 0.35); }
+  .feature-card .ic{
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background: var(--grad); margin-bottom:1.3rem;
+  }
+  .feature-card .ic svg{ width:22px; height:22px; color:#fff; }
+  .feature-card h3{ font-size:1.15rem; margin-bottom:.6rem; }
+  .feature-card p{ color:var(--muted); font-size:0.95rem; }
+
+  /* ---------- App preview ---------- */
+  .preview{
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap:3.5rem; align-items:center;
+  }
+  @media (max-width: 900px){ .preview{ grid-template-columns:1fr; } }
+  .preview-copy h2{ font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem; }
+  .preview-copy p{ color:var(--muted); margin-bottom:1.75rem; }
+  .preview-list{ display:flex; flex-direction:column; gap:1rem; }
+  .preview-list li{ display:flex; align-items:flex-start; gap:.8rem; color:var(--muted); font-size:0.95rem; }
+  .preview-list svg{ width:18px; height:18px; color:var(--blue); flex-shrink:0; margin-top:.15rem; }
+
+  .phone{
+    background: var(--surface);
+    border:1px solid var(--line);
+    border-radius: 1.75rem;
+    padding:1rem;
+    box-shadow: 0 30px 80px -30px hsl(255 80% 40% / 0.4);
+    max-width:400px; margin:0 auto;
+  }
+  .phone-top{ display:flex; align-items:center; justify-content:space-between; padding:.4rem .6rem 1rem; }
+  .phone-top .brand{ display:flex; gap:.5rem; align-items:center; font-weight:600; font-size:0.95rem; }
+  .phone-top .brand .dot-mark{ width:18px; height:18px; border-radius:50%; background:var(--grad); }
+  .post{ background:var(--surface-2); border:1px solid var(--line); border-radius:var(--radius-md); padding:1rem; margin-bottom:0.8rem; }
+  .post-head{ display:flex; align-items:center; gap:.6rem; margin-bottom:.65rem; }
+  .avatar{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; color:#fff; background:var(--grad); }
+  .post-head .who{ font-size:0.85rem; }
+  .post-head .who .handle{ color:var(--muted-dim); font-family:'JetBrains Mono', monospace; font-size:0.75rem; }
+  .post p{ font-size:0.88rem; color:hsl(230 20% 88%); margin-bottom:.7rem; }
+  .post-actions{ display:flex; gap:1.1rem; }
+  .post-actions span{ display:flex; align-items:center; gap:.35rem; font-size:0.78rem; color:var(--muted-dim); }
+  .post-actions svg{ width:15px; height:15px; }
+  .live-badge{ display:flex; align-items:center; gap:.4rem; font-family:'JetBrains Mono', monospace; font-size:0.68rem; color:#7cf29c; }
+  .live-badge .dot{ width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 0 hsl(140 70% 55% / .6); animation:dotping 2s ease-out infinite; }
+
+  /* ---------- Benefits ---------- */
+  .benefits-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+  @media (max-width:900px){ .benefits-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .benefits-grid{ grid-template-columns:1fr; } }
+  .benefit{ text-align:center; padding:1.5rem; }
+  .benefit .num{ font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--violet); margin-bottom:.75rem; }
+  .benefit h3{ font-size:1.1rem; margin-bottom:.5rem; }
+  .benefit p{ color:var(--muted); font-size:0.9rem; }
+
+  /* ---------- Testimonials ---------- */
+  .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+  @media (max-width:900px){ .testimonial-grid{ grid-template-columns:1fr; } }
+  .testimonial{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:1.9rem; display:flex; flex-direction:column; gap:1.2rem;
+  }
+  .testimonial .quote{ color:hsl(230 20% 88%); font-size:0.98rem; line-height:1.6; }
+  .testimonial .who{ display:flex; align-items:center; gap:.7rem; margin-top:auto; }
+  .testimonial .who .meta{ font-size:0.85rem; }
+  .testimonial .who .role{ color:var(--muted-dim); font-size:0.78rem; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:.8rem; }
+  .faq details{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:1.1rem 1.4rem; transition: border-color .25s ease;
+  }
+  .faq details[open]{ border-color: hsl(255 70% 70% / 0.35); }
+  .faq summary{
+    cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between;
+    font-weight:600; font-size:1rem; gap:1rem;
+  }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary .plus{
+    width:22px; height:22px; border-radius:50%; border:1px solid var(--line); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; position:relative; transition:transform .3s ease;
+  }
+  .faq summary .plus::before, .faq summary .plus::after{
+    content:""; position:absolute; background:var(--muted); transition:opacity .2s ease;
+  }
+  .faq summary .plus::before{ width:9px; height:1.5px; }
+  .faq summary .plus::after{ width:1.5px; height:9px; }
+  .faq details[open] summary .plus::after{ opacity:0; }
+  .faq details[open] summary .plus{ transform:rotate(90deg); }
+  .faq p{ color:var(--muted); font-size:0.92rem; margin-top:0.9rem; line-height:1.65; }
+
+  /* ---------- Final CTA ---------- */
+  .cta-band{
+    text-align:center; padding:5rem 2rem; border-radius:2rem;
+    background: radial-gradient(120% 160% at 50% 0%, hsl(255 70% 22%), var(--ink) 70%);
+    border:1px solid var(--line); position:relative; overflow:hidden; max-width:1120px; margin:0 auto;
+  }
+  .cta-band h2{ font-size:clamp(1.9rem,3.6vw,2.8rem); margin-bottom:1rem; }
+  .cta-band p{ color:var(--muted); margin-bottom:2rem; }
+
+  /* ---------- Footer ---------- */
+  footer{ border-top:1px solid var(--line); padding:4rem 0 2rem; margin-top:2rem; }
+  .footer-grid{ display:grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap:2.5rem; margin-bottom:3rem; }
+  @media (max-width:800px){ .footer-grid{ grid-template-columns:repeat(2,1fr); } }
+  .footer-brand p{ color:var(--muted); font-size:0.9rem; margin-top:1rem; max-width:28ch; }
+  .footer-col h4{ font-size:0.85rem; color:var(--muted-dim); font-family:'JetBrains Mono', monospace; margin-bottom:1rem; letter-spacing:.05em; }
+  .footer-col ul{ display:flex; flex-direction:column; gap:.65rem; }
+  .footer-col a{ color:var(--muted); font-size:0.92rem; transition:color .2s ease; }
+  .footer-col a:hover{ color:var(--white); }
+  .footer-bottom{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    padding-top:2rem; border-top:1px solid var(--line);
+    color:var(--muted-dim); font-size:0.82rem;
+  }
+  .socials{ display:flex; gap:.9rem; }
+  .socials a{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; transition: border-color .2s ease, transform .2s ease;
+  }
+  .socials a:hover{ border-color:var(--violet); transform:translateY(-2px); }
+  .socials svg{ width:16px; height:16px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="3" fill="#fff"/>
+        <circle cx="15" cy="15" r="8" stroke="url(#g1)" stroke-width="1.5"/>
+        <circle cx="15" cy="15" r="13" stroke="url(#g1)" stroke-width="1.2" opacity="0.6"/>
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="30" y2="30">
+            <stop stop-color="#4c6fff"/>
+            <stop offset="1" stop-color="#9b5cff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      echo
+    </a>
+    <ul class="nav-links">
+      <li><a href="#caracteristicas">Características</a></li>
+      <li><a href="#vista-previa">La app</a></li>
+      <li><a href="#comunidades">Comunidades</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost">Iniciar sesión</a>
+      <a href="#cta" class="btn btn-primary">Únete ahora</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="wrap hero-content">
+      <span class="eyebrow"><span class="dot"></span> ahora en vivo · miles de conversaciones por minuto</span>
+      <h1>Cada publicación es una onda. <span class="grad">Mira hasta dónde llega.</span></h1>
+      <p class="lead">Echo conecta personas a través de publicaciones, chat en tiempo real y comunidades donde tu voz encuentra quien la escuche.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary">Únete ahora</a>
+        <a href="#vista-previa" class="btn btn-ghost">Ver cómo funciona</a>
+      </div>
+      <p class="hero-note">// sin tarjeta de crédito · te unes en menos de un minuto</p>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section class="section" id="caracteristicas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Qué puedes hacer</span>
+        <h2>Todo lo que necesitas para hacerte escuchar</h2>
+        <p>Publica, conversa y organízate en un mismo lugar, diseñado para que cada interacción se sienta viva.</p>
+      </div>
+
+      <ul class="icon-strip" aria-hidden="true">
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M4 12h10M4 19h13"/></svg></li>
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></li>
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></li>
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="9" r="3.5"/><circle cx="16" cy="9" r="3.5"/><path d="M2.5 20c.5-3.5 3-5.5 5.5-5.5s5 2 5.5 5.5M11 20c.5-3.5 3-5.5 5.5-5.5s5 2 5.5 5.5"/></svg></li>
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.8 4.5 2.3C11.5 5.8 13 4.7 15 5c3.5.5 5 4 3.5 7.5C16 16.65 12 21 12 21z"/></svg></li>
+        <li class="node" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></li>
+      </ul>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 5h16M4 12h10M4 19h13"/></svg></div>
+          <h3>Publicaciones</h3>
+          <p>Comparte texto, imágenes o video en segundos. Cada publicación inicia su propia onda en el feed.</p>
+        </article>
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Chat en tiempo real</h3>
+          <p>Mensajes instantáneos, presencia en vivo e indicadores de escritura para conversaciones sin fricción.</p>
+        </article>
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Perfiles personalizados</h3>
+          <p>Elige tema, insignias y una biografía que suene como tú. Tu perfil es tu firma dentro de Echo.</p>
+        </article>
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="8" cy="9" r="3.5"/><circle cx="16" cy="9" r="3.5"/><path d="M2.5 20c.5-3.5 3-5.5 5.5-5.5s5 2 5.5 5.5M11 20c.5-3.5 3-5.5 5.5-5.5s5 2 5.5 5.5"/></svg></div>
+          <h3>Comunidades</h3>
+          <p>Únete o crea espacios temáticos donde encuentras a las personas que ya piensan como tú.</p>
+        </article>
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.8 4.5 2.3C11.5 5.8 13 4.7 15 5c3.5.5 5 4 3.5 7.5C16 16.65 12 21 12 21z"/></svg></div>
+          <h3>Reacciones</h3>
+          <p>Responde con reacciones expresivas que se propagan y le dan vida a cada publicación.</p>
+        </article>
+        <article class="feature-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+          <h3>Notificaciones</h3>
+          <p>Entérate al instante cuando algo que dijiste genera ruido en tu red.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISTA PREVIA APP -->
+  <section class="section" id="vista-previa">
+    <div class="wrap preview">
+      <div class="preview-copy">
+        <span class="eyebrow">Adentro de Echo</span>
+        <h2>Un feed que se siente vivo, no una lista de posts</h2>
+        <p>Mira las conversaciones suceder en tiempo real: reacciones que llegan al instante, comentarios que se abren sin recargar y comunidades activas todo el día.</p>
+        <ul class="preview-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Feed personalizado según tus comunidades e intereses</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Reacciones y comentarios que aparecen en vivo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Indicador de quién está en línea ahora mismo</li>
+        </ul>
+      </div>
+
+      <div class="phone">
+        <div class="phone-top">
+          <div class="brand"><span class="dot-mark"></span> Tu feed</div>
+          <span class="live-badge"><span class="dot"></span> EN VIVO</span>
+        </div>
+
+        <div class="post">
+          <div class="post-head">
+            <div class="avatar">MJ</div>
+            <div class="who">María J. <div class="handle">@mariaj · hace 2m</div></div>
+          </div>
+          <p>Acabo de lanzar mi comunidad de fotografía urbana 📸 ¡el eco ya empezó a llegar!</p>
+          <div class="post-actions">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.8 4.5 2.3C11.5 5.8 13 4.7 15 5c3.5.5 5 4 3.5 7.5C16 16.65 12 21 12 21z"/></svg> 128</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 34</span>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-head">
+            <div class="avatar">DR</div>
+            <div class="who">Diego R. <div class="handle">@diegor · hace 5m</div></div>
+          </div>
+          <p>La comunidad de #devs está brutal esta semana. Alguien más viendo el hilo sobre Rust?</p>
+          <div class="post-actions">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.8 4.5 2.3C11.5 5.8 13 4.7 15 5c3.5.5 5 4 3.5 7.5C16 16.65 12 21 12 21z"/></svg> 76</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 19</span>
+          </div>
+        </div>
+
+        <div class="post" style="margin-bottom:0;">
+          <div class="post-head">
+            <div class="avatar">LP</div>
+            <div class="who">Laura P. <div class="handle">@laurap · ahora</div></div>
+          </div>
+          <p>Nueva actualización de perfiles ya disponible ✨ prueben los temas nuevos</p>
+          <div class="post-actions">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.8 4.5 2.3C11.5 5.8 13 4.7 15 5c3.5.5 5 4 3.5 7.5C16 16.65 12 21 12 21z"/></svg> 12</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section" id="comunidades">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Por qué quedarte</span>
+        <h2>Diseñado para que cada conversación importe</h2>
+        <p>No es solo otra red social: es un espacio pensado para que tu voz llegue a quien de verdad quiere escucharla.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="num">01</div>
+          <h3>Velocidad real</h3>
+          <p>Publicaciones y mensajes que llegan sin demora, en cualquier lugar.</p>
+        </div>
+        <div class="benefit">
+          <div class="num">02</div>
+          <h3>Control total</h3>
+          <p>Decide quién ve tus publicaciones y quién puede escribirte.</p>
+        </div>
+        <div class="benefit">
+          <div class="num">03</div>
+          <h3>Comunidad real</h3>
+          <p>Espacios curados donde las conversaciones no se pierden en el ruido.</p>
+        </div>
+        <div class="benefit">
+          <div class="num">04</div>
+          <h3>Se siente vivo</h3>
+          <p>Microinteracciones y presencia en vivo que hacen que cada visita se sienta distinta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="section" id="testimonios">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Voces de la comunidad</span>
+        <h2>Gente que ya encontró su eco</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p class="quote">"Encontré mi comunidad de ilustración en la primera semana. Nunca había tenido tantas conversaciones reales sobre mi trabajo."</p>
+          <div class="who">
+            <div class="avatar">SN</div>
+            <div class="meta">Sofía N. <div class="role">Ilustradora</div></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="quote">"El chat en vivo cambió cómo organizo a mi equipo. Se siente más rápido que cualquier otra app que haya usado."</p>
+          <div class="who">
+            <div class="avatar">CT</div>
+            <div class="meta">Carlos T. <div class="role">Product Manager</div></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="quote">"Las notificaciones no me saturan, me avisan justo de lo que importa. Por fin una red que respeta mi atención."</p>
+          <div class="who">
+            <div class="avatar">AV</div>
+            <div class="meta">Ana V. <div class="role">Creadora de contenido</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Todo lo que quieras saber antes de unirte</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>¿Qué es Echo? <span class="plus"></span></summary>
+          <p>Echo es una red social para conectar con personas mediante publicaciones, chat en tiempo real y comunidades organizadas por intereses.</p>
+        </details>
+        <details>
+          <summary>¿Cómo creo una comunidad? <span class="plus"></span></summary>
+          <p>Desde tu perfil, elige "Nueva comunidad", define el tema, la privacidad y listo: puedes invitar personas o dejarla abierta a quien la encuentre.</p>
+        </details>
+        <details>
+          <summary>¿Es gratis usar Echo? <span class="plus"></span></summary>
+          <p>Sí. Crear tu cuenta, publicar, chatear y unirte a comunidades no tiene costo. En el futuro habrá funciones opcionales de pago.</p>
+        </details>
+        <details>
+          <summary>¿Puedo controlar quién ve mis publicaciones? <span class="plus"></span></summary>
+          <p>Sí, puedes definir la visibilidad de cada publicación: pública, solo comunidad o solo tus contactos.</p>
+        </details>
+        <details>
+          <summary>¿Echo tiene apps móviles? <span class="plus"></span></summary>
+          <p>Echo está disponible en la web y próximamente en iOS y Android. Suscríbete para recibir aviso del lanzamiento.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section" id="cta">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Tu próxima conversación empieza aquí</h2>
+        <p>Únete gratis y descubre a quién le llega tu eco.</p>
+        <a href="#" class="btn btn-primary">Únete ahora</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <svg class="mark" viewBox="0 0 30 30" fill="none">
+            <circle cx="15" cy="15" r="3" fill="#fff"/>
+            <circle cx="15" cy="15" r="8" stroke="url(#g2)" stroke-width="1.5"/>
+            <circle cx="15" cy="15" r="13" stroke="url(#g2)" stroke-width="1.2" opacity="0.6"/>
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="30" y2="30">
+                <stop stop-color="#4c6fff"/>
+                <stop offset="1" stop-color="#9b5cff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          echo
+        </a>
+        <p>La red social donde tu voz encuentra a quien resuena con ella.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PRODUCTO</h4>
+        <ul>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#vista-previa">La app</a></li>
+          <li><a href="#comunidades">Comunidades</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>COMPAÑÍA</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Carreras</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACTO</h4>
+        <ul>
+          <li><a href="mailto:hola@echo.app">hola@echo.app</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Echo. Todos los derechos reservados.</span>
+      <div class="socials">
+        <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.4L18.9 2z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.3 2 1.8 3.6 4 3.9v2.7c-1.4 0-2.8-.4-4-1.2v6.4a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v2.8a2.5 2.5 0 1 0 1.8 2.4V3z"/></svg></a>
+        <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.9 1a10 10 0 0 1 5.3 0c2-1.3 2.9-1 2.9-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .3.3.6.9.6 1.8v2.6c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+>>>>>>> 6d57f575cde98d1dc296f49a2743543f46f7136d
 </html>
